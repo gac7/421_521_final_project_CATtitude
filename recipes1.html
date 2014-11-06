@@ -1,0 +1,1284 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>4. Basic Recipes &mdash; Picamera 1.8 documentation</title>
+  
+
+  
+  
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  
+  
+    
+
+  
+
+  
+  
+
+  
+    <link rel="stylesheet" href="_static/style_override.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/sphinx_rtd_theme.css" type="text/css" />
+  
+    <link rel="stylesheet" href="https://media.readthedocs.org/css/readthedocs-doc-embed.css" type="text/css" />
+  
+    <link rel="top" title="Picamera 1.8 documentation" href="index.html"/>
+        <link rel="next" title="5. Advanced Recipes" href="recipes2.html"/>
+        <link rel="prev" title="3. Quick Start" href="quickstart.html"/>
+ 
+<!-- RTD Extra Head -->
+
+
+
+<!-- 
+Read the Docs is acting as the canonical URL for your project. 
+If you want to change it, more info is available in our docs:
+  http://docs.readthedocs.org/en/latest/canonical.html
+-->
+<link rel="canonical" href="http://picamera.readthedocs.org/en/latest/recipes1.html" />
+
+<script type="text/javascript">
+  // This is included here because other places don't have access to the pagename variable.
+  var READTHEDOCS_DATA = {
+    project: "picamera",
+    version: "release-1.8",
+    language: "en",
+    page: "recipes1",
+    theme: "sphinx_rtd_theme",
+    docroot: "/docs/",
+    source_suffix: ".rst",
+    api_host: "https://readthedocs.org",
+    commit: "838190710e27155670e5cea9e326ca3a4c9357ee"
+  }
+  // Old variables
+  var doc_version = "release-1.8";
+  var doc_slug = "picamera";
+  var page_name = "recipes1";
+  var html_theme = "sphinx_rtd_theme";
+</script>
+<!-- RTD Analytics Code -->
+<!-- Included in the header because you don't have a footer block. -->
+<script type="text/javascript">
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-17997319-1']);
+  _gaq.push(['_trackPageview']);
+
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+</script>
+<!-- end RTD Analytics Code -->
+<!-- end RTD <extrahead> -->
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-nav-search">
+        
+          <a href="index.html" class="fa fa-home"> Picamera</a>
+        
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        
+        
+            <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="install2.html">1. Python 2.7+ Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install2.html#firmware-upgrades">1.1. Firmware upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install2.html#raspbian-installation">1.2. Raspbian installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install2.html#user-installation">1.3. User installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install2.html#system-installation">1.4. System installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install2.html#virtualenv-installation">1.5. Virtualenv installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install2.html#development-installation">1.6. Development installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install2.html#test-suite">1.7. Test suite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="install3.html">2. Python 3.2+ Installation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="install3.html#firmware-upgrades">2.1. Firmware upgrades</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install3.html#raspbian-installation">2.2. Raspbian installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install3.html#user-installation">2.3. User installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install3.html#system-installation">2.4. System installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install3.html#virtualenv-installation">2.5. Virtualenv installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install3.html#development-installation">2.6. Development installation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="install3.html#test-suite">2.7. Test suite</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="quickstart.html">3. Quick Start</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">4. Basic Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-to-a-file">4.1. Capturing to a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-to-a-stream">4.2. Capturing to a stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-to-a-pil-image">4.3. Capturing to a PIL Image</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-to-an-opencv-object">4.4. Capturing to an OpenCV object</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-resized-images">4.5. Capturing resized images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-consistent-images">4.6. Capturing consistent images</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-timelapse-sequences">4.7. Capturing timelapse sequences</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-in-low-light">4.8. Capturing in low light</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#capturing-to-a-network-stream">4.9. Capturing to a network stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recording-video-to-a-file">4.10. Recording video to a file</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recording-video-to-a-stream">4.11. Recording video to a stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recording-over-multiple-files">4.12. Recording over multiple files</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recording-to-a-circular-stream">4.13. Recording to a circular stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#recording-to-a-network-stream">4.14. Recording to a network stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overlaying-images-on-the-preview">4.15. Overlaying images on the preview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#overlaying-text-on-the-output">4.16. Overlaying text on the output</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#controlling-the-led">4.17. Controlling the LED</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="recipes2.html">5. Advanced Recipes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#unencoded-image-capture-yuv-format">5.1. Unencoded image capture (YUV format)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#unencoded-image-capture-rgb-format">5.2. Unencoded image capture (RGB format)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#rapid-capture-and-processing">5.3. Rapid capture and processing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#rapid-capture-and-streaming">5.4. Rapid capture and streaming</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#capturing-images-whilst-recording">5.5. Capturing images whilst recording</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#recording-at-multiple-resolutions">5.6. Recording at multiple resolutions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#recording-motion-vector-data">5.7. Recording motion vector data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#splitting-to-from-a-circular-stream">5.8. Splitting to/from a circular stream</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#custom-outputs">5.9. Custom outputs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#custom-encoders">5.10. Custom encoders</a></li>
+<li class="toctree-l2"><a class="reference internal" href="recipes2.html#raw-bayer-data-captures">5.11. Raw Bayer data captures</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">6. Frequently Asked Questions (FAQ)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#can-i-put-the-preview-in-a-window">6.1. Can I put the preview in a window?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#help-i-started-a-preview-and-can-t-see-my-console">6.2. Help! I started a preview and can&#8217;t see my console!</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-much-power-does-the-camera-require">6.3. How much power does the camera require?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-i-take-two-consecutive-pictures-with-equivalent-settings">6.4. How can I take two consecutive pictures with equivalent settings?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#can-i-use-picamera-with-a-usb-webcam">6.5. Can I use picamera with a USB webcam?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-can-i-tell-what-version-of-picamera-i-have-installed">6.6. How can I tell what version of picamera I have installed?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="faq.html#how-come-i-can-t-upgrade-to-the-latest-version">6.7. How come I can&#8217;t upgrade to the latest version?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fov.html">7. Camera Hardware</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fov.html#camera-modes">7.1. Camera Modes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fov.html#under-the-hood">7.2. Under the Hood</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="deprecated.html">8. Deprecated Functionality</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html#finding-and-fixing-deprecated-usage">8.1. Finding and fixing deprecated usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="deprecated.html#list-of-deprecated-functionality">8.2. List of deprecated functionality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api.html">9. API Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api.html#picamera">9.1. PiCamera</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#picameracirculario">9.2. PiCameraCircularIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#circulario">9.3. CircularIO</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pivideoframetype">9.4. PiVideoFrameType</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pivideoframe">9.5. PiVideoFrame</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#piencoder">9.6. PiEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pivideoencoder">9.7. PiVideoEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#piimageencoder">9.8. PiImageEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pirawmixin">9.9. PiRawMixin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#picookedvideoencoder">9.10. PiCookedVideoEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pirawvideoencoder">9.11. PiRawVideoEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pioneimageencoder">9.12. PiOneImageEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pimultiimageencoder">9.13. PiMultiImageEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pirawimagemixin">9.14. PiRawImageMixin</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#picookedoneimageencoder">9.15. PiCookedOneImageEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pirawoneimageencoder">9.16. PiRawOneImageEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#picookedmultiimageencoder">9.17. PiCookedMultiImageEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pirawmultiimageencoder">9.18. PiRawMultiImageEncoder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pirenderer">9.19. PiRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pioverlayrenderer">9.20. PiOverlayRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pipreviewrenderer">9.21. PiPreviewRenderer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#pinullsink">9.22. PiNullSink</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api.html#exceptions">9.23. Exceptions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="array.html">10. Array Extensions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="array.html#piarrayoutput">10.1. PiArrayOutput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#pirgbarray">10.2. PiRGBArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#piyuvarray">10.3. PiYUVArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#pibayerarray">10.4. PiBayerArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#pimotionarray">10.5. PiMotionArray</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#pianalysisoutput">10.6. PiAnalysisOutput</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#pirgbanalysis">10.7. PiRGBAnalysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#piyuvanalysis">10.8. PiYUVAnalysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="array.html#pimotionanalysis">10.9. PiMotionAnalysis</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="changelog.html">11. Change log</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-8-2014-09-05">11.1. Release 1.8 (2014-09-05)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-7-2014-08-08">11.2. Release 1.7 (2014-08-08)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-6-2014-07-21">11.3. Release 1.6 (2014-07-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-5-2014-06-11">11.4. Release 1.5 (2014-06-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-4-2014-05-06">11.5. Release 1.4 (2014-05-06)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-3-2014-03-22">11.6. Release 1.3 (2014-03-22)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-2-2014-02-02">11.7. Release 1.2 (2014-02-02)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-1-2014-01-25">11.8. Release 1.1 (2014-01-25)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-1-0-2014-01-11">11.9. Release 1.0 (2014-01-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-0-8-2013-12-09">11.10. Release 0.8 (2013-12-09)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-0-7-2013-11-14">11.11. Release 0.7 (2013-11-14)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-0-6-2013-10-30">11.12. Release 0.6 (2013-10-30)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-0-5-2013-10-21">11.13. Release 0.5 (2013-10-21)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-0-4-2013-10-11">11.14. Release 0.4 (2013-10-11)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-0-3-2013-10-04">11.15. Release 0.3 (2013-10-04)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="changelog.html#release-0-2">11.16. Release 0.2</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="license.html">12. License</a></li>
+</ul>
+
+        
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="index.html">Picamera</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="index.html">Docs</a> &raquo;</li>
+      
+    <li>4. Basic Recipes</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          <a href="https://github.com/waveform80/picamera/blob/release-1.8/docs/recipes1.rst" class="fa fa-github"> Edit on GitHub</a>
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document">
+            
+  <div class="section" id="basic-recipes">
+<span id="recipes1"></span><h1>4. Basic Recipes<a class="headerlink" href="#basic-recipes" title="Permalink to this headline">¶</a></h1>
+<p>The following recipes should be reasonably accessible to Python programmers of
+all skill levels. Please feel free to suggest enhancements or additional
+recipes.</p>
+<div class="section" id="capturing-to-a-file">
+<span id="file-capture"></span><h2>4.1. Capturing to a file<a class="headerlink" href="#capturing-to-a-file" title="Permalink to this headline">¶</a></h2>
+<p>Capturing an image to a file is as simple as specifying the name of the file as
+the output of whatever <a class="reference internal" href="api.html#picamera.PiCamera.capture" title="picamera.PiCamera.capture"><tt class="xref py py-meth docutils literal"><span class="pre">capture()</span></tt></a> method you require:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="c"># Camera warm-up time</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="s">&#39;foo.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that files opened by picamera (as in the case above) will be flushed and
+closed so that when the capture method returns, the data should be accessible
+to other processes.</p>
+</div>
+<div class="section" id="capturing-to-a-stream">
+<span id="stream-capture"></span><h2>4.2. Capturing to a stream<a class="headerlink" href="#capturing-to-a-stream" title="Permalink to this headline">¶</a></h2>
+<p>Capturing an image to a file-like object (a <a class="reference external" href="http://docs.python.org/3.2/library/socket.html#socket.socket" title="(in Python v3.2)"><tt class="xref py py-func docutils literal"><span class="pre">socket()</span></tt></a>, a
+<a class="reference external" href="http://docs.python.org/3.2/library/io.html#io.BytesIO" title="(in Python v3.2)"><tt class="xref py py-class docutils literal"><span class="pre">io.BytesIO</span></tt></a> stream, an existing open file object, etc.) is as simple as
+specifying that object as the output of whatever
+<a class="reference internal" href="api.html#picamera.PiCamera.capture" title="picamera.PiCamera.capture"><tt class="xref py py-meth docutils literal"><span class="pre">capture()</span></tt></a> method you&#8217;re using:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="c"># Create an in-memory stream</span>
+<span class="n">my_stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="c"># Camera warm-up time</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="n">my_stream</span><span class="p">,</span> <span class="s">&#39;jpeg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Note that the format is explicitly specified in the case above. The
+<a class="reference external" href="http://docs.python.org/3.2/library/io.html#io.BytesIO" title="(in Python v3.2)"><tt class="xref py py-class docutils literal"><span class="pre">BytesIO</span></tt></a> object has no filename, so the camera can&#8217;t automatically
+figure out what format to use.</p>
+<p>One thing to bear in mind is that (unlike specifying a filename), the stream is
+<em>not</em> automatically closed after capture; picamera assumes that since it didn&#8217;t
+open the stream it can&#8217;t presume to close it either. However, if the object has
+a <tt class="docutils literal"><span class="pre">flush</span></tt> method, this will be called prior to capture returning. This should
+ensure that once capture returns the data is accessible to other processes
+although the object still needs to be closed:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="c"># Explicitly open a new file called my_image.jpg</span>
+<span class="n">my_file</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;my_image.jpg&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span>
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="n">my_file</span><span class="p">)</span>
+<span class="c"># At this point my_file.flush() has been called, but the file has</span>
+<span class="c"># not yet been closed</span>
+<span class="n">my_file</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that in the case above, we didn&#8217;t have to specify the format as the camera
+interrogated the <tt class="docutils literal"><span class="pre">my_file</span></tt> object for its filename (specifically, it looks
+for a <tt class="docutils literal"><span class="pre">name</span></tt> attribute on the provided object). As well as using stream
+classes built into Python (like <a class="reference external" href="http://docs.python.org/3.2/library/io.html#io.BytesIO" title="(in Python v3.2)"><tt class="xref py py-class docutils literal"><span class="pre">BytesIO</span></tt></a>) you can also construct
+your own <a class="reference internal" href="recipes2.html#custom-outputs"><em>custom outputs</em></a>.</p>
+</div>
+<div class="section" id="capturing-to-a-pil-image">
+<span id="pil-capture"></span><h2>4.3. Capturing to a PIL Image<a class="headerlink" href="#capturing-to-a-pil-image" title="Permalink to this headline">¶</a></h2>
+<p>This is a variation on <a class="reference internal" href="#stream-capture"><em>Capturing to a stream</em></a>. First we&#8217;ll capture an image to a
+<a class="reference external" href="http://docs.python.org/3.2/library/io.html#io.BytesIO" title="(in Python v3.2)"><tt class="xref py py-class docutils literal"><span class="pre">BytesIO</span></tt></a> stream (Python&#8217;s in-memory stream class), then we&#8217;ll
+rewind the position of the stream to the start, and read the stream into a
+<a class="reference external" href="http://effbot.org/imagingbook/pil-index.htm">PIL</a> Image object:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c"># Create the in-memory stream</span>
+<span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;jpeg&#39;</span><span class="p">)</span>
+<span class="c"># &quot;Rewind&quot; the stream to the beginning so we can read its content</span>
+<span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capturing-to-an-opencv-object">
+<span id="opencv-capture"></span><h2>4.4. Capturing to an OpenCV object<a class="headerlink" href="#capturing-to-an-opencv-object" title="Permalink to this headline">¶</a></h2>
+<p>This is another variation on <a class="reference internal" href="#stream-capture"><em>Capturing to a stream</em></a>. First we&#8217;ll capture an
+image to a <a class="reference external" href="http://docs.python.org/3.2/library/io.html#io.BytesIO" title="(in Python v3.2)"><tt class="xref py py-class docutils literal"><span class="pre">BytesIO</span></tt></a> stream (Python&#8217;s in-memory stream class), then
+convert the stream to a numpy array and read the array with <a class="reference external" href="http://opencv.org/">OpenCV</a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c"># Create the in-memory stream</span>
+<span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;jpeg&#39;</span><span class="p">)</span>
+<span class="c"># Construct a numpy array from the stream</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">fromstring</span><span class="p">(</span><span class="n">stream</span><span class="o">.</span><span class="n">getvalue</span><span class="p">(),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="c"># &quot;Decode&quot; the image from the array, preserving colour</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">cv2</span><span class="o">.</span><span class="n">imdecode</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="c"># OpenCV returns an array with data in BGR order. If you want RGB instead</span>
+<span class="c"># use the following...</span>
+<span class="n">image</span> <span class="o">=</span> <span class="n">image</span><span class="p">[:,</span> <span class="p">:,</span> <span class="p">::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>If you want to avoid the JPEG encoding and decoding (which is lossy) and
+potentially speed up the process, you can now use the classes in the
+<a class="reference internal" href="array.html#module-picamera.array" title="picamera.array"><tt class="xref py py-mod docutils literal"><span class="pre">picamera.array</span></tt></a> module. As OpenCV images are simply numpy arrays arranged
+in BGR order, one can use the <a class="reference internal" href="array.html#picamera.array.PiRGBArray" title="picamera.array.PiRGBArray"><tt class="xref py py-class docutils literal"><span class="pre">PiRGBArray</span></tt></a> class and
+simply capture with the <tt class="docutils literal"><span class="pre">'bgr'</span></tt> format (given that RGB and BGR data is the
+same size and configuration, just with reversed color planes):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">import</span> <span class="nn">picamera.array</span>
+<span class="kn">import</span> <span class="nn">cv2</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">array</span><span class="o">.</span><span class="n">PiRGBArray</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;bgr&#39;</span><span class="p">)</span>
+        <span class="c"># At this point the image is available as stream.array</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">stream</span><span class="o">.</span><span class="n">array</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capturing-resized-images">
+<span id="resize-capture"></span><h2>4.5. Capturing resized images<a class="headerlink" href="#capturing-resized-images" title="Permalink to this headline">¶</a></h2>
+<p>Sometimes, particularly in scripts which will perform some sort of analysis or
+processing on images, you may wish to capture smaller images than the current
+resolution of the camera. Although such resizing can be performed using
+libraries like PIL or OpenCV, it is considerably more efficient to have the
+Pi&#8217;s GPU perform the resizing when capturing the image. This can be done with
+the <em>resize</em> parameter of the <a class="reference internal" href="api.html#picamera.PiCamera.capture" title="picamera.PiCamera.capture"><tt class="xref py py-meth docutils literal"><span class="pre">capture()</span></tt></a> methods:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1024</span><span class="p">,</span> <span class="mi">768</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="c"># Camera warm-up time</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="s">&#39;foo.jpg&#39;</span><span class="p">,</span> <span class="n">resize</span><span class="o">=</span><span class="p">(</span><span class="mi">320</span><span class="p">,</span> <span class="mi">240</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>The <em>resize</em> parameter can also be specified when recording video with the
+<a class="reference internal" href="api.html#picamera.PiCamera.start_recording" title="picamera.PiCamera.start_recording"><tt class="xref py py-meth docutils literal"><span class="pre">start_recording()</span></tt></a> method.</p>
+</div>
+<div class="section" id="capturing-consistent-images">
+<span id="consistent-capture"></span><h2>4.6. Capturing consistent images<a class="headerlink" href="#capturing-consistent-images" title="Permalink to this headline">¶</a></h2>
+<p>You may wish to capture a sequence of images all of which look the same in
+terms of brightness, color, and contrast (this can be useful in timelapse
+photography, for example). Various attributes need to be used in order to
+ensure consistency across multiple shots. Specifically, you need to ensure that
+the camera&#8217;s exposure time, white balance, and gains are all fixed:</p>
+<ul class="simple">
+<li>To fix exposure time, set the <a class="reference internal" href="api.html#picamera.PiCamera.shutter_speed" title="picamera.PiCamera.shutter_speed"><tt class="xref py py-attr docutils literal"><span class="pre">shutter_speed</span></tt></a>
+attribute to a reasonable value, then set
+<a class="reference internal" href="api.html#picamera.PiCamera.exposure_mode" title="picamera.PiCamera.exposure_mode"><tt class="xref py py-attr docutils literal"><span class="pre">exposure_mode</span></tt></a> to <tt class="docutils literal"><span class="pre">'off'</span></tt>.</li>
+<li>To fix gains, set the <a class="reference internal" href="api.html#picamera.PiCamera.iso" title="picamera.PiCamera.iso"><tt class="xref py py-attr docutils literal"><span class="pre">iso</span></tt></a> attribute to an
+appropriate value (higher values imply higher gains).</li>
+<li>To fix white balance, set the <a class="reference internal" href="api.html#picamera.PiCamera.awb_mode" title="picamera.PiCamera.awb_mode"><tt class="xref py py-attr docutils literal"><span class="pre">awb_mode</span></tt></a> to
+<tt class="docutils literal"><span class="pre">'off'</span></tt>, then set <a class="reference internal" href="api.html#picamera.PiCamera.awb_gains" title="picamera.PiCamera.awb_gains"><tt class="xref py py-attr docutils literal"><span class="pre">awb_gains</span></tt></a> to a (red, blue)
+tuple of gains.</li>
+</ul>
+<p>It can be difficult to know what appropriate values might be for these
+attributes.  For <a class="reference internal" href="api.html#picamera.PiCamera.iso" title="picamera.PiCamera.iso"><tt class="xref py py-attr docutils literal"><span class="pre">iso</span></tt></a>, a simple rule of thumb is that
+100 and 200 are reasonable values for daytime, while 400 and 800 are better for
+low light. To determine a reasonable value for
+<a class="reference internal" href="api.html#picamera.PiCamera.shutter_speed" title="picamera.PiCamera.shutter_speed"><tt class="xref py py-attr docutils literal"><span class="pre">shutter_speed</span></tt></a> you can query the
+<a class="reference internal" href="api.html#picamera.PiCamera.exposure_speed" title="picamera.PiCamera.exposure_speed"><tt class="xref py py-attr docutils literal"><span class="pre">exposure_speed</span></tt></a> attribute when
+<a class="reference internal" href="api.html#picamera.PiCamera.exposure_mode" title="picamera.PiCamera.exposure_mode"><tt class="xref py py-attr docutils literal"><span class="pre">exposure_mode</span></tt></a> is set to something other than
+<tt class="docutils literal"><span class="pre">'off'</span></tt>. This will tell you the camera&#8217;s exposure speed as determined by the
+auto-exposure algorithm. FInally, to determine reasonable values for
+<a class="reference internal" href="api.html#picamera.PiCamera.awb_gains" title="picamera.PiCamera.awb_gains"><tt class="xref py py-attr docutils literal"><span class="pre">awb_gains</span></tt></a> simply query the property while
+<a class="reference internal" href="api.html#picamera.PiCamera.awb_mode" title="picamera.PiCamera.awb_mode"><tt class="xref py py-attr docutils literal"><span class="pre">awb_mode</span></tt></a> is set to something other than <tt class="docutils literal"><span class="pre">'off'</span></tt>.
+Again, this will tell you the camera&#8217;s white balance gains as determined by the
+auto-white-balance algorithm.</p>
+<p>The following script provides a brief example of configuring these settings:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="mi">30</span>
+    <span class="c"># Give the camera&#39;s auto-exposure and auto-white-balance algorithms</span>
+    <span class="c"># some time to measure the scene and determine appropriate values</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">iso</span> <span class="o">=</span> <span class="mi">200</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c"># Now fix the values</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">shutter_speed</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">exposure_speed</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">exposure_mode</span> <span class="o">=</span> <span class="s">&#39;off&#39;</span>
+    <span class="n">g</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">awb_gains</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">awb_mode</span> <span class="o">=</span> <span class="s">&#39;off&#39;</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">awb_gains</span> <span class="o">=</span> <span class="n">g</span>
+    <span class="c"># Finally, take several photos with the fixed settings</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture_sequence</span><span class="p">([</span><span class="s">&#39;image</span><span class="si">%02d</span><span class="s">.jpg&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capturing-timelapse-sequences">
+<span id="timelapse-capture"></span><h2>4.7. Capturing timelapse sequences<a class="headerlink" href="#capturing-timelapse-sequences" title="Permalink to this headline">¶</a></h2>
+<p>The simplest way to capture long time-lapse sequences is with the
+<a class="reference internal" href="api.html#picamera.PiCamera.capture_continuous" title="picamera.PiCamera.capture_continuous"><tt class="xref py py-meth docutils literal"><span class="pre">capture_continuous()</span></tt></a> method. With this method, the
+camera captures images continually until you tell it to stop. Images are
+automatically given unique names and you can easily control the delay between
+captures. The following example shows how to capture images with a 5 minute
+delay between each shot:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">camera</span><span class="o">.</span><span class="n">capture_continuous</span><span class="p">(</span><span class="s">&#39;img{counter:03d}.jpg&#39;</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Captured </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">300</span><span class="p">)</span> <span class="c"># wait 5 minutes</span>
+</pre></div>
+</div>
+<p>However, you may wish to capture images at a particular time, say at the start
+of every hour. This simply requires a refinement of the delay in the loop (the
+<a class="reference external" href="http://docs.python.org/3.2/library/datetime.html#module-datetime" title="(in Python v3.2)"><tt class="xref py py-mod docutils literal"><span class="pre">datetime</span></tt></a> module is slightly easier to use for calculating dates and
+times; this example also demonstrates the <tt class="docutils literal"><span class="pre">timestamp</span></tt> template in the
+captured filenames):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span>
+
+<span class="k">def</span> <span class="nf">wait</span><span class="p">():</span>
+    <span class="c"># Calculate the delay to the start of the next hour</span>
+    <span class="n">next_hour</span> <span class="o">=</span> <span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">hour</span><span class="o">=</span><span class="mi">1</span><span class="p">))</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span>
+        <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">delay</span> <span class="o">=</span> <span class="p">(</span><span class="n">next_hour</span> <span class="o">-</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span><span class="o">.</span><span class="n">seconds</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="n">delay</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">wait</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">camera</span><span class="o">.</span><span class="n">capture_continuous</span><span class="p">(</span><span class="s">&#39;img{timestamp:%Y-%m-</span><span class="si">%d</span><span class="s">-%H-%M}.jpg&#39;</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Captured </span><span class="si">%s</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">filename</span><span class="p">)</span>
+        <span class="n">wait</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capturing-in-low-light">
+<span id="dark-capture"></span><h2>4.8. Capturing in low light<a class="headerlink" href="#capturing-in-low-light" title="Permalink to this headline">¶</a></h2>
+<p>Using similar tricks to those in <a class="reference internal" href="#consistent-capture"><em>Capturing consistent images</em></a>, the Pi&#8217;s camera can
+capture images in low light conditions. The primary objective is to set a high
+gain, and a long exposure time to allow the camera to gather as much light as
+possible However, the <a class="reference internal" href="api.html#picamera.PiCamera.shutter_speed" title="picamera.PiCamera.shutter_speed"><tt class="xref py py-attr docutils literal"><span class="pre">shutter_speed</span></tt></a> attribute is
+constrained by the camera&#8217;s <a class="reference internal" href="api.html#picamera.PiCamera.framerate" title="picamera.PiCamera.framerate"><tt class="xref py py-attr docutils literal"><span class="pre">framerate</span></tt></a> so the first
+thing we need to do is set a very slow framerate. The following script captures
+an image with a 6 second exposure time (the maximum the Pi&#8217;s camera module is
+currently capable of):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+<span class="kn">from</span> <span class="nn">fractions</span> <span class="kn">import</span> <span class="n">Fraction</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
+    <span class="c"># Set a framerate of 1/6fps, then set shutter</span>
+    <span class="c"># speed to 6s and ISO to 800</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="n">Fraction</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">shutter_speed</span> <span class="o">=</span> <span class="mi">6000000</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">exposure_mode</span> <span class="o">=</span> <span class="s">&#39;off&#39;</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">iso</span> <span class="o">=</span> <span class="mi">800</span>
+    <span class="c"># Give the camera a good long time to measure AWB</span>
+    <span class="c"># (you may wish to use fixed AWB instead)</span>
+    <span class="n">sleep</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+    <span class="c"># Finally, capture an image with a 6s exposure. Due</span>
+    <span class="c"># to mode switching on the still port, this will take</span>
+    <span class="c"># longer than 6 seconds</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="s">&#39;dark.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In anything other than dark conditions, the image produced by this script will
+most likely be completely white or at least heavily over-exposed.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Pi&#8217;s camera module uses a <a class="reference external" href="http://en.wikipedia.org/wiki/Rolling_shutter">rolling shutter</a>. This means that moving
+subjects may appear distorted if they move relative to the camera. This
+effect will be exaggerated by using longer exposure times.</p>
+</div>
+</div>
+<div class="section" id="capturing-to-a-network-stream">
+<span id="streaming-capture"></span><h2>4.9. Capturing to a network stream<a class="headerlink" href="#capturing-to-a-network-stream" title="Permalink to this headline">¶</a></h2>
+<p>This is a variation of <a class="reference internal" href="#timelapse-capture"><em>Capturing timelapse sequences</em></a>. Here we have two scripts: a
+server (presumably on a fast machine) which listens for a connection from the
+Raspberry Pi, and a client which runs on the Raspberry Pi and sends a continual
+stream of images to the server. We&#8217;ll use a very simple protocol for
+communication: first the length of the image will be sent as a 32-bit integer
+(in <a class="reference external" href="http://en.wikipedia.org/wiki/Endianness">Little Endian</a> format), then this will be followed by the bytes of image
+data. If the length is 0, this indicates that the connection should be closed
+as no more images will be forthcoming. This protocol is illustrated below:</p>
+<div align="center" class="align-center"><img src="_images/image_protocol.svg" /></div>
+<p>Firstly the server script (which relies on PIL for reading JPEGs, but you could
+replace this with any other suitable graphics library, e.g. OpenCV or
+GraphicsMagick):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+
+<span class="c"># Start a socket listening for connections on 0.0.0.0:8000 (0.0.0.0 means</span>
+<span class="c"># all interfaces)</span>
+<span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+<span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+<span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c"># Accept a single connection and make a file-like object out of it</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="c"># Read the length of the image as a 32-bit unsigned int. If the</span>
+        <span class="c"># length is zero, quit the loop</span>
+        <span class="n">image_len</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack</span><span class="p">(</span><span class="s">&#39;&lt;L&#39;</span><span class="p">,</span> <span class="n">connection</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">calcsize</span><span class="p">(</span><span class="s">&#39;&lt;L&#39;</span><span class="p">)))[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">image_len</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="c"># Construct a stream to hold the image data and read the image</span>
+        <span class="c"># data from the connection</span>
+        <span class="n">image_stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+        <span class="n">image_stream</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">connection</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">image_len</span><span class="p">))</span>
+        <span class="c"># Rewind the stream, open it as an image with PIL and do some</span>
+        <span class="c"># processing on it</span>
+        <span class="n">image_stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">image</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">image_stream</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Image is </span><span class="si">%d</span><span class="s">x</span><span class="si">%d</span><span class="s">&#39;</span> <span class="o">%</span> <span class="n">image</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+        <span class="n">image</span><span class="o">.</span><span class="n">verify</span><span class="p">()</span>
+        <span class="k">print</span><span class="p">(</span><span class="s">&#39;Image is verified&#39;</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">server_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Now for the client side of things, on the Raspberry Pi:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">struct</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="c"># Connect a client socket to my_server:8000 (change my_server to the</span>
+<span class="c"># hostname of your server)</span>
+<span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+<span class="n">client_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s">&#39;my_server&#39;</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+
+<span class="c"># Make a file-like object out of the connection</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">client_socket</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;wb&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+        <span class="c"># Start a preview and let the camera warm up for 2 seconds</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+        <span class="c"># Note the start time and construct a stream to hold image data</span>
+        <span class="c"># temporarily (we could write it directly to connection but in this</span>
+        <span class="c"># case we want to find out the size of each capture first to keep</span>
+        <span class="c"># our protocol simple)</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+        <span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">foo</span> <span class="ow">in</span> <span class="n">camera</span><span class="o">.</span><span class="n">capture_continuous</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="s">&#39;jpeg&#39;</span><span class="p">):</span>
+            <span class="c"># Write the length of the capture to the stream and flush to</span>
+            <span class="c"># ensure it actually gets sent</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s">&#39;&lt;L&#39;</span><span class="p">,</span> <span class="n">stream</span><span class="o">.</span><span class="n">tell</span><span class="p">()))</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">flush</span><span class="p">()</span>
+            <span class="c"># Rewind the stream and send the image data over the wire</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+            <span class="c"># If we&#39;ve been capturing for more than 30 seconds, quit</span>
+            <span class="k">if</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span> <span class="o">&gt;</span> <span class="mi">30</span><span class="p">:</span>
+                <span class="k">break</span>
+            <span class="c"># Reset the stream for the next capture</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+            <span class="n">stream</span><span class="o">.</span><span class="n">truncate</span><span class="p">()</span>
+    <span class="c"># Write a length of zero to the stream to signal we&#39;re done</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">struct</span><span class="o">.</span><span class="n">pack</span><span class="p">(</span><span class="s">&#39;&lt;L&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">client_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The server script should be run first to ensure there&#8217;s a listening socket
+ready to accept a connection from the client script.</p>
+</div>
+<div class="section" id="recording-video-to-a-file">
+<span id="file-record"></span><h2>4.10. Recording video to a file<a class="headerlink" href="#recording-video-to-a-file" title="Permalink to this headline">¶</a></h2>
+<p>Recording a video to a file is simple:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="s">&#39;my_video.h264&#39;</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Note that we use <a class="reference internal" href="api.html#picamera.PiCamera.wait_recording" title="picamera.PiCamera.wait_recording"><tt class="xref py py-meth docutils literal"><span class="pre">wait_recording()</span></tt></a> in the example above
+instead of <a class="reference external" href="http://docs.python.org/3.2/library/time.html#time.sleep" title="(in Python v3.2)"><tt class="xref py py-func docutils literal"><span class="pre">time.sleep()</span></tt></a> which we&#8217;ve been using in the image capture
+recipes above. The <a class="reference internal" href="api.html#picamera.PiCamera.wait_recording" title="picamera.PiCamera.wait_recording"><tt class="xref py py-meth docutils literal"><span class="pre">wait_recording()</span></tt></a> method is similar
+in that it will pause for the number of seconds specified, but unlike
+<a class="reference external" href="http://docs.python.org/3.2/library/time.html#time.sleep" title="(in Python v3.2)"><tt class="xref py py-func docutils literal"><span class="pre">time.sleep()</span></tt></a> it will continually check for recording errors (e.g. an out
+of disk space condition) while it is waiting. If we had used <a class="reference external" href="http://docs.python.org/3.2/library/time.html#time.sleep" title="(in Python v3.2)"><tt class="xref py py-func docutils literal"><span class="pre">time.sleep()</span></tt></a>
+instead, such errors would only be raised by the
+<a class="reference internal" href="api.html#picamera.PiCamera.stop_recording" title="picamera.PiCamera.stop_recording"><tt class="xref py py-meth docutils literal"><span class="pre">stop_recording()</span></tt></a> call (which could be long after the
+error actually occurred).</p>
+</div>
+<div class="section" id="recording-video-to-a-stream">
+<span id="stream-record"></span><h2>4.11. Recording video to a stream<a class="headerlink" href="#recording-video-to-a-stream" title="Permalink to this headline">¶</a></h2>
+<p>This is very similar to <a class="reference internal" href="#file-record"><em>Recording video to a file</em></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="n">stream</span> <span class="o">=</span> <span class="n">io</span><span class="o">.</span><span class="n">BytesIO</span><span class="p">()</span>
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;h264&#39;</span><span class="p">,</span> <span class="n">quality</span><span class="o">=</span><span class="mi">23</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Here, we&#8217;ve set the <em>quality</em> parameter to indicate to the encoder the level
+of image quality that we&#8217;d like it to try and maintain. The camera&#8217;s H.264
+encoder is primarily constrained by two parameters:</p>
+<ul class="simple">
+<li><em>bitrate</em> limits the encoder&#8217;s output to a certain number of bits per second.
+The default is 17000000 (17Mbps), and the maximum value is 25000000 (25Mbps).
+Higher values give the encoder more &#8220;freedom&#8221; to encode at higher qualities.
+You will likely find that the default doesn&#8217;t constrain the encoder at all
+except at higher recording resolutions.</li>
+<li><em>quality</em> tells the encoder what level of image quality to maintain. Values
+can be between 1 (highest quality) and 40 (lowest quality), with typical
+values providing a reasonable trade-off between bandwidth and quality being
+between 20 and 25.</li>
+</ul>
+<p>As well as using stream classes built into Python (like <a class="reference external" href="http://docs.python.org/3.2/library/io.html#io.BytesIO" title="(in Python v3.2)"><tt class="xref py py-class docutils literal"><span class="pre">BytesIO</span></tt></a>)
+you can also construct your own <a class="reference internal" href="recipes2.html#custom-outputs"><em>custom outputs</em></a>. This is
+particularly useful for video recording, as discussed in the linked recipe.</p>
+</div>
+<div class="section" id="recording-over-multiple-files">
+<span id="split-record"></span><h2>4.12. Recording over multiple files<a class="headerlink" href="#recording-over-multiple-files" title="Permalink to this headline">¶</a></h2>
+<p>If you wish split your recording over multiple files, you can use the
+<a class="reference internal" href="api.html#picamera.PiCamera.split_recording" title="picamera.PiCamera.split_recording"><tt class="xref py py-meth docutils literal"><span class="pre">split_recording()</span></tt></a> method to accomplish this:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="s">&#39;1.h264&#39;</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">11</span><span class="p">):</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">split_recording</span><span class="p">(</span><span class="s">&#39;</span><span class="si">%d</span><span class="s">.h264&#39;</span> <span class="o">%</span> <span class="n">i</span><span class="p">)</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>This should produce 10 video files named <tt class="docutils literal"><span class="pre">1.h264</span></tt>, <tt class="docutils literal"><span class="pre">2.h264</span></tt>, etc. each of
+which is approximately 5 seconds long (approximately because the
+<a class="reference internal" href="api.html#picamera.PiCamera.split_recording" title="picamera.PiCamera.split_recording"><tt class="xref py py-meth docutils literal"><span class="pre">split_recording()</span></tt></a> method will only split files at a
+key-frame).</p>
+<p>The <a class="reference internal" href="api.html#picamera.PiCamera.record_sequence" title="picamera.PiCamera.record_sequence"><tt class="xref py py-meth docutils literal"><span class="pre">record_sequence()</span></tt></a> method can also be used to
+achieve this with slightly cleaner code:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">filename</span> <span class="ow">in</span> <span class="n">camera</span><span class="o">.</span><span class="n">record_sequence</span><span class="p">(</span>
+            <span class="s">&#39;</span><span class="si">%d</span><span class="s">.h264&#39;</span> <span class="o">%</span> <span class="n">i</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">11</span><span class="p">)):</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="versionchanged">
+<p><span class="versionmodified">Changed in version 1.3: </span>The <a class="reference internal" href="api.html#picamera.PiCamera.record_sequence" title="picamera.PiCamera.record_sequence"><tt class="xref py py-meth docutils literal"><span class="pre">record_sequence()</span></tt></a> method was introduced in
+version 1.3</p>
+</div>
+</div>
+<div class="section" id="recording-to-a-circular-stream">
+<span id="circular-record1"></span><h2>4.13. Recording to a circular stream<a class="headerlink" href="#recording-to-a-circular-stream" title="Permalink to this headline">¶</a></h2>
+<p>This is similar to <a class="reference internal" href="#stream-record"><em>Recording video to a stream</em></a> but uses a special kind of in-memory
+stream provided by the picamera library. The
+<a class="reference internal" href="api.html#picamera.PiCameraCircularIO" title="picamera.PiCameraCircularIO"><tt class="xref py py-class docutils literal"><span class="pre">PiCameraCircularIO</span></tt></a> class implements a <a class="reference external" href="http://en.wikipedia.org/wiki/Circular_buffer">ring buffer</a> based
+stream, specifically for video recording.  This enables you to keep an
+in-memory stream containing the last <em>n</em> seconds of video recorded (where <em>n</em>
+is determined by the bitrate of the video recording and the size of the ring
+buffer underlying the stream).</p>
+<p>A typical use-case for this sort of storage is security applications where one
+wishes to detect motion and only record to disk the video where motion was
+detected. This example keeps 20 seconds of video in memory until the
+<tt class="docutils literal"><span class="pre">write_now</span></tt> function returns <tt class="docutils literal"><span class="pre">True</span></tt> (in this implementation, this is random
+but one could, for example, replace this with some sort of motion detection
+algorithm). Once <tt class="docutils literal"><span class="pre">write_now</span></tt> returns <tt class="docutils literal"><span class="pre">True</span></tt>, the script waits 10 more
+seconds (so that the buffer contains 10 seconds of video from before the event,
+and 10 seconds after) and writes the resulting video to disk before going back
+to waiting:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">random</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">def</span> <span class="nf">write_now</span><span class="p">():</span>
+    <span class="c"># Randomly return True (like a fake motion detection routine)</span>
+    <span class="k">return</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span>
+
+<span class="k">def</span> <span class="nf">write_video</span><span class="p">(</span><span class="n">stream</span><span class="p">):</span>
+    <span class="k">print</span><span class="p">(</span><span class="s">&#39;Writing video!&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">stream</span><span class="o">.</span><span class="n">lock</span><span class="p">:</span>
+        <span class="c"># Find the first header frame in the video</span>
+        <span class="k">for</span> <span class="n">frame</span> <span class="ow">in</span> <span class="n">stream</span><span class="o">.</span><span class="n">frames</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">frame</span><span class="o">.</span><span class="n">frame_type</span> <span class="o">==</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiVideoFrameType</span><span class="o">.</span><span class="n">sps_header</span><span class="p">:</span>
+                <span class="n">stream</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="n">frame</span><span class="o">.</span><span class="n">position</span><span class="p">)</span>
+                <span class="k">break</span>
+        <span class="c"># Write the rest of the stream to disk</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;motion.h264&#39;</span><span class="p">,</span> <span class="s">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">output</span><span class="p">:</span>
+            <span class="n">output</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">stream</span><span class="o">.</span><span class="n">read</span><span class="p">())</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">stream</span> <span class="o">=</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCameraCircularIO</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">seconds</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="n">stream</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;h264&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">write_now</span><span class="p">():</span>
+                <span class="c"># Keep recording for 10 seconds and only then write the</span>
+                <span class="c"># stream to disk</span>
+                <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                <span class="n">write_video</span><span class="p">(</span><span class="n">stream</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>In the above script we use the threading lock in the
+<a class="reference internal" href="api.html#picamera.CircularIO.lock" title="picamera.CircularIO.lock"><tt class="xref py py-attr docutils literal"><span class="pre">lock</span></tt></a> attribute to prevent the camera&#8217;s background
+writing thread from changing the stream while our own thread reads from it (as
+the stream is a circular buffer, a write can remove information that is about
+to be read). If we had stopped recording to the stream while writing we could
+eliminate the <tt class="docutils literal"><span class="pre">with</span> <span class="pre">stream.lock</span></tt> line in the <tt class="docutils literal"><span class="pre">write_video</span></tt> function.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Note that <em>at least</em> 20 seconds of video are in the stream. This is an
+estimate only; if the H.264 encoder requires less than the specified
+bitrate (17Mbps by default) for recording the video, then more than 20
+seconds of video will be available in the stream.</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.0.</span></p>
+</div>
+</div>
+<div class="section" id="recording-to-a-network-stream">
+<span id="streaming-record"></span><h2>4.14. Recording to a network stream<a class="headerlink" href="#recording-to-a-network-stream" title="Permalink to this headline">¶</a></h2>
+<p>This is similar to <a class="reference internal" href="#stream-record"><em>Recording video to a stream</em></a> but instead of an in-memory stream like
+<a class="reference external" href="http://docs.python.org/3.2/library/io.html#io.BytesIO" title="(in Python v3.2)"><tt class="xref py py-class docutils literal"><span class="pre">BytesIO</span></tt></a>, we will use a file-like object created from a
+<a class="reference external" href="http://docs.python.org/3.2/library/socket.html#socket.socket" title="(in Python v3.2)"><tt class="xref py py-func docutils literal"><span class="pre">socket()</span></tt></a>. Unlike the example in <a class="reference internal" href="#streaming-capture"><em>Capturing to a network stream</em></a> we don&#8217;t
+need to complicate our network protocol by writing things like the length of
+images. This time we&#8217;re sending a continual stream of video frames (which
+necessarily incorporates such information, albeit in a much more efficient
+form), so we can simply dump the recording straight to the network socket.</p>
+<p>Firstly, the server side script which will simply read the video stream and
+pipe it to a media player for display:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+
+<span class="c"># Start a socket listening for connections on 0.0.0.0:8000 (0.0.0.0 means</span>
+<span class="c"># all interfaces)</span>
+<span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+<span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+<span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c"># Accept a single connection and make a file-like object out of it</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;rb&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="c"># Run a viewer with an appropriate command line. Uncomment the mplayer</span>
+    <span class="c"># version if you would prefer to use mplayer instead of VLC</span>
+    <span class="n">cmdline</span> <span class="o">=</span> <span class="p">[</span><span class="s">&#39;vlc&#39;</span><span class="p">,</span> <span class="s">&#39;--demux&#39;</span><span class="p">,</span> <span class="s">&#39;h264&#39;</span><span class="p">,</span> <span class="s">&#39;-&#39;</span><span class="p">]</span>
+    <span class="c">#cmdline = [&#39;mplayer&#39;, &#39;-fps&#39;, &#39;25&#39;, &#39;-cache&#39;, &#39;1024&#39;, &#39;-&#39;]</span>
+    <span class="n">player</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">Popen</span><span class="p">(</span><span class="n">cmdline</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">)</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="c"># Repeatedly read 1k of data from the connection and write it to</span>
+        <span class="c"># the media player&#39;s stdin</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="mi">1024</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">data</span><span class="p">:</span>
+            <span class="k">break</span>
+        <span class="n">player</span><span class="o">.</span><span class="n">stdin</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">server_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">player</span><span class="o">.</span><span class="n">terminate</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you run this script on Windows you will probably need to provide a
+complete path to the VLC or mplayer executable. If you run this script
+on Mac OS X, and are using Python installed from MacPorts, please ensure
+you have also installed VLC or mplayer from MacPorts.</p>
+</div>
+<p>You will probably notice several seconds of latency with this setup. This is
+normal and is because media players buffer several seconds to guard against
+unreliable network streams. Some media players (notably mplayer in this case)
+permit the user to skip to the end of the buffer (press the right cursor key in
+mplayer), reducing the latency by increasing the risk that delayed / dropped
+network packets will interrupt the playback.</p>
+<p>Now for the client side script which simply starts a recording over a file-like
+object created from the network socket:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="c"># Connect a client socket to my_server:8000 (change my_server to the</span>
+<span class="c"># hostname of your server)</span>
+<span class="n">client_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+<span class="n">client_socket</span><span class="o">.</span><span class="n">connect</span><span class="p">((</span><span class="s">&#39;my_server&#39;</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+
+<span class="c"># Make a file-like object out of the connection</span>
+<span class="n">connection</span> <span class="o">=</span> <span class="n">client_socket</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;wb&#39;</span><span class="p">)</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="mi">24</span>
+        <span class="c"># Start a preview and let the camera warm up for 2 seconds</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="c"># Start recording, sending the output to the connection for 60</span>
+        <span class="c"># seconds, then stop</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;h264&#39;</span><span class="p">)</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">()</span>
+<span class="k">finally</span><span class="p">:</span>
+    <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+    <span class="n">client_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>It should also be noted that the effect of the above is much more easily
+achieved (at least on Linux) with a combination of <tt class="docutils literal"><span class="pre">netcat</span></tt> and the
+<tt class="docutils literal"><span class="pre">raspivid</span></tt> executable. For example:</p>
+<div class="highlight-python"><div class="highlight"><pre>server-side: nc -l 8000 | vlc --demux h264 -
+client-side: raspivid -w 640 -h 480 -t 60000 -o - | nc my_server 8000
+</pre></div>
+</div>
+<p>However, this recipe does serve as a starting point for video streaming
+applications. It&#8217;s also possible to reverse the direction of this recipe
+relatively easily. In this scenario, the Pi acts as the server, waiting for a
+connection from the client. When it accepts a connection, it starts streaming
+video over it for 60 seconds. Another variation (just for the purposes of
+demonstration) is that we initialize the camera straight away instead of
+waiting for a connection to allow the streaming to start faster on connection:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">socket</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="mi">24</span>
+
+    <span class="n">server_socket</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">socket</span><span class="p">()</span>
+    <span class="n">server_socket</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s">&#39;0.0.0.0&#39;</span><span class="p">,</span> <span class="mi">8000</span><span class="p">))</span>
+    <span class="n">server_socket</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c"># Accept a single connection and make a file-like object out of it</span>
+    <span class="n">connection</span> <span class="o">=</span> <span class="n">server_socket</span><span class="o">.</span><span class="n">accept</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;wb&#39;</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="n">connection</span><span class="p">,</span> <span class="n">format</span><span class="o">=</span><span class="s">&#39;h264&#39;</span><span class="p">)</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">()</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">server_socket</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>One advantage of this setup is that no script is needed on the client side - we
+can simply use VLC with a network URL:</p>
+<div class="highlight-python"><div class="highlight"><pre>vlc tcp/h264://my_pi_address:8000/
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">VLC (or mplayer) will <em>not</em> work for playback on a Pi. Neither is
+(currently) capable of using the GPU for decoding, and thus they attempt to
+perform video decoding on the Pi&#8217;s CPU (which is not powerful enough for
+the task). You will need to run these applications on a faster machine
+(though &#8220;faster&#8221; is a relative term here: even an Atom powered netbook
+should be quick enough for the task at non-HD resolutions).</p>
+</div>
+</div>
+<div class="section" id="overlaying-images-on-the-preview">
+<span id="image-overlay"></span><h2>4.15. Overlaying images on the preview<a class="headerlink" href="#overlaying-images-on-the-preview" title="Permalink to this headline">¶</a></h2>
+<p>The camera preview system can operate multiple layered renderers
+simultaneously.  While the picamera library only permits a single renderer to
+be connected to the camera&#8217;s preview port, it does permit additional renderers
+to be created which display a static image. These overlayed renderers can be
+used to create simple user interfaces.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Overlay images will <em>not</em> appear in image captures or video recordings. If
+you need to embed additional information in the output of the camera,
+please refer to <a class="reference internal" href="#text-overlay"><em>Overlaying text on the output</em></a>.</p>
+</div>
+<p>One difficulty of working with overlay renderers is that they expect unencoded
+RGB input which is padded up to the camera&#8217;s block size. The camera&#8217;s block
+size is 32x16 so any image data provided to a renderer must have a width which
+is a multiple of 32, and a height which is a multiple of 16. The specific RGB
+format expected is interleaved unsigned bytes. If all this sounds complicated,
+don&#8217;t worry; it&#8217;s quite simple to produce in practice.</p>
+<p>The following example demonstrates loading an arbitrary size image with PIL,
+padding it to the required size, and producing the unencoded RGB data for the
+call to <a class="reference internal" href="api.html#picamera.PiCamera.add_overlay" title="picamera.PiCamera.add_overlay"><tt class="xref py py-meth docutils literal"><span class="pre">add_overlay()</span></tt></a>:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">from</span> <span class="nn">PIL</span> <span class="kn">import</span> <span class="n">Image</span>
+<span class="kn">from</span> <span class="nn">time</span> <span class="kn">import</span> <span class="n">sleep</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+
+    <span class="c"># Load the arbitrarily sized image</span>
+    <span class="n">img</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s">&#39;overlay.png&#39;</span><span class="p">)</span>
+    <span class="c"># Create an image padded to the required size with</span>
+    <span class="c"># mode &#39;RGB&#39;</span>
+    <span class="n">pad</span> <span class="o">=</span> <span class="n">Image</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s">&#39;RGB&#39;</span><span class="p">,</span> <span class="p">(</span>
+        <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="mi">31</span> <span class="o">//</span> <span class="mi">32</span><span class="p">)</span> <span class="o">*</span> <span class="mi">32</span><span class="p">,</span>
+        <span class="p">(</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="mi">15</span> <span class="o">//</span> <span class="mi">16</span><span class="p">)</span> <span class="o">*</span> <span class="mi">16</span><span class="p">,</span>
+        <span class="p">))</span>
+    <span class="c"># Paste the original image into the padded one</span>
+    <span class="n">pad</span><span class="o">.</span><span class="n">paste</span><span class="p">(</span><span class="n">img</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+
+    <span class="c"># Add the overlay with the padded image as the source,</span>
+    <span class="c"># but the original image&#39;s dimensions</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">add_overlay</span><span class="p">(</span><span class="n">pad</span><span class="o">.</span><span class="n">tostring</span><span class="p">(),</span> <span class="n">size</span><span class="o">=</span><span class="n">img</span><span class="o">.</span><span class="n">size</span><span class="p">)</span>
+    <span class="c"># By default, the overlay is in layer 0, beneath the</span>
+    <span class="c"># preview (which defaults to layer 2). Here we make</span>
+    <span class="c"># the new overlay semi-transparent, then move it above</span>
+    <span class="c"># the preview</span>
+    <span class="n">o</span><span class="o">.</span><span class="n">alpha</span> <span class="o">=</span> <span class="mi">128</span>
+    <span class="n">o</span><span class="o">.</span><span class="n">layer</span> <span class="o">=</span> <span class="mi">3</span>
+
+    <span class="c"># Wait indefinitely until the user terminates the script</span>
+    <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+        <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Alternatively, instead of using an image file as the source, you can produce an
+overlay directly from a numpy array. In the following example, we construct
+a numpy array with the same resolution as the screen, then draw a white cross
+through the center and overlay it on the preview as a simple cross-hair:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c"># Create an array representing a 1280x720 image of</span>
+<span class="c"># a cross through the center of the display. The shape of</span>
+<span class="c"># the array must be of the form (height, width, color)</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">720</span><span class="p">,</span> <span class="mi">1280</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">)</span>
+<span class="n">a</span><span class="p">[</span><span class="mi">360</span><span class="p">,</span> <span class="p">:,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mh">0xff</span>
+<span class="n">a</span><span class="p">[:,</span> <span class="mi">640</span><span class="p">,</span> <span class="p">:]</span> <span class="o">=</span> <span class="mh">0xff</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="c"># Add the overlay directly into layer 3 with transparency;</span>
+    <span class="c"># we can omit the size parameter of add_overlay as the</span>
+    <span class="c"># size is the same as the camera&#39;s resolution</span>
+    <span class="n">o</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">add_overlay</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">getbuffer</span><span class="p">(</span><span class="n">a</span><span class="p">),</span> <span class="n">layer</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mi">64</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="c"># Wait indefinitely until the user terminates the script</span>
+        <span class="k">while</span> <span class="bp">True</span><span class="p">:</span>
+            <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">finally</span><span class="p">:</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">remove_overlay</span><span class="p">(</span><span class="n">o</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Given that overlayed renderers can be hidden (by moving them below the
+preview&#8217;s <a class="reference internal" href="api.html#picamera.PiRenderer.layer" title="picamera.PiRenderer.layer"><tt class="xref py py-attr docutils literal"><span class="pre">layer</span></tt></a> which defaults to 2), made
+semi-transparent (with the <a class="reference internal" href="api.html#picamera.PiRenderer.alpha" title="picamera.PiRenderer.alpha"><tt class="xref py py-attr docutils literal"><span class="pre">alpha</span></tt></a> property), and
+resized so that they don&#8217;t <a class="reference internal" href="api.html#picamera.PiRenderer.fullscreen" title="picamera.PiRenderer.fullscreen"><tt class="xref py py-attr docutils literal"><span class="pre">fill</span> <span class="pre">the</span> <span class="pre">screen</span></tt></a>, they can be used to construct simple user
+interfaces.</p>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.8.</span></p>
+</div>
+</div>
+<div class="section" id="overlaying-text-on-the-output">
+<span id="text-overlay"></span><h2>4.16. Overlaying text on the output<a class="headerlink" href="#overlaying-text-on-the-output" title="Permalink to this headline">¶</a></h2>
+<p>The camera includes a rudimentary annotation facility which permits up to 255
+characters of ASCII text to be overlayed on all output (including the preview,
+image captures and video recordings). To achieve this, simply assign a string
+to the <a class="reference internal" href="api.html#picamera.PiCamera.annotate_text" title="picamera.PiCamera.annotate_text"><tt class="xref py py-attr docutils literal"><span class="pre">annotate_text</span></tt></a> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">annotate_text</span> <span class="o">=</span> <span class="s">&#39;Hello world!&#39;</span>
+    <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+    <span class="c"># Take a picture including the annotation</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="s">&#39;foo.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>With a little ingenuity, it&#8217;s possible to display longer strings:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">import</span> <span class="nn">time</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+
+<span class="n">s</span> <span class="o">=</span> <span class="s">&quot;This message would be far too long to display normally...&quot;</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">annotate_text</span> <span class="o">=</span> <span class="s">&#39; &#39;</span> <span class="o">*</span> <span class="mi">31</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">cycle</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">annotate_text</span> <span class="o">=</span> <span class="n">camera</span><span class="o">.</span><span class="n">annotate_text</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">31</span><span class="p">]</span> <span class="o">+</span> <span class="n">c</span>
+        <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>And of course, it can be used to display (and embed) a timestamp in recordings
+(this recipe also demonstrates drawing a background behind the timestamp for
+contrast with the <tt class="xref py py-attr docutils literal"><span class="pre">annotate_bg</span></tt> attribute):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+<span class="kn">import</span> <span class="nn">datetime</span> <span class="kn">as</span> <span class="nn">dt</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">resolution</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1280</span><span class="p">,</span> <span class="mi">720</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">framerate</span> <span class="o">=</span> <span class="mi">24</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_preview</span><span class="p">()</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">annotate_bg</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">annotate_text</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s"> %H:%M:%S&#39;</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">start_recording</span><span class="p">(</span><span class="s">&#39;timestamped.h264&#39;</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+    <span class="k">while</span> <span class="p">(</span><span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span> <span class="o">-</span> <span class="n">start</span><span class="p">)</span><span class="o">.</span><span class="n">seconds</span> <span class="o">&lt;</span> <span class="mi">30</span><span class="p">:</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">annotate_text</span> <span class="o">=</span> <span class="n">dt</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s">&#39;%Y-%m-</span><span class="si">%d</span><span class="s"> %H:%M:%S&#39;</span><span class="p">)</span>
+        <span class="n">camera</span><span class="o">.</span><span class="n">wait_recording</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">stop_recording</span><span class="p">()</span>
+</pre></div>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">New in version 1.7.</span></p>
+</div>
+</div>
+<div class="section" id="controlling-the-led">
+<span id="led-control"></span><h2>4.17. Controlling the LED<a class="headerlink" href="#controlling-the-led" title="Permalink to this headline">¶</a></h2>
+<p>In certain circumstances, you may find the camera module&#8217;s red LED a hindrance.
+For example, in the case of automated close-up wild-life photography, the LED
+may scare off animals. It can also cause unwanted reflected red glare with
+close-up subjects.</p>
+<p>One trivial way to deal with this is simply to place some opaque covering on
+the LED (e.g. blue-tack or electricians tape). Another method is to use the
+<tt class="docutils literal"><span class="pre">disable_camera_led</span></tt> option in the <a class="reference external" href="http://www.raspberrypi.org/documentation/configuration/config-txt.md">boot configuration</a>.</p>
+<p>However, provided you have the <a class="reference external" href="https://pypi.python.org/pypi/RPi.GPIO">RPi.GPIO</a> package installed, and provided your
+Python process is running with sufficient privileges (typically this means
+running as root with <tt class="docutils literal"><span class="pre">sudo</span> <span class="pre">python</span></tt>), you can also control the LED via the
+<a class="reference internal" href="api.html#picamera.PiCamera.led" title="picamera.PiCamera.led"><tt class="xref py py-attr docutils literal"><span class="pre">led</span></tt></a> attribute:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">import</span> <span class="nn">picamera</span>
+
+<span class="k">with</span> <span class="n">picamera</span><span class="o">.</span><span class="n">PiCamera</span><span class="p">()</span> <span class="k">as</span> <span class="n">camera</span><span class="p">:</span>
+    <span class="c"># Turn the camera&#39;s LED off</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">led</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="c"># Take a picture while the LED remains off</span>
+    <span class="n">camera</span><span class="o">.</span><span class="n">capture</span><span class="p">(</span><span class="s">&#39;foo.jpg&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Be aware when you first use the LED property it will set the GPIO library
+to Broadcom (BCM) mode with <tt class="docutils literal"><span class="pre">GPIO.setmode(GPIO.BCM)</span></tt> and disable warnings
+with <tt class="docutils literal"><span class="pre">GPIO.setwarnings(False)</span></tt>. The LED cannot be controlled when the
+library is in BOARD mode.</p>
+</div>
+</div>
+</div>
+
+
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="recipes2.html" class="btn btn-neutral float-right" title="5. Advanced Recipes">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="quickstart.html" class="btn btn-neutral" title="3. Quick Start"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2013,2014 Dave Hughes.
+    </p>
+  </div>
+
+  <a href="https://github.com/snide/sphinx_rtd_theme">Sphinx theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      <span class="fa fa-book"> Read the Docs</span>
+      v: release-1.8
+      <span class="fa fa-caret-down"></span>
+    </span>
+    <div class="rst-other-versions">
+      <dl>
+        <dt>Versions</dt>
+        
+          <dd><a href="/en/release-1.8/">release-1.8</a></dd>
+        
+          <dd><a href="/en/release-1.7/">release-1.7</a></dd>
+        
+          <dd><a href="/en/release-1.6/">release-1.6</a></dd>
+        
+          <dd><a href="/en/release-1.5/">release-1.5</a></dd>
+        
+          <dd><a href="/en/release-1.4/">release-1.4</a></dd>
+        
+          <dd><a href="/en/release-1.3/">release-1.3</a></dd>
+        
+          <dd><a href="/en/release-1.2/">release-1.2</a></dd>
+        
+          <dd><a href="/en/release-1.1/">release-1.1</a></dd>
+        
+          <dd><a href="/en/release-1.0/">release-1.0</a></dd>
+        
+          <dd><a href="/en/latest/">latest</a></dd>
+        
+      </dl>
+      <dl>
+        <dt>Downloads</dt>
+        
+      </dl>
+      <dl>
+        <dt>On Read the Docs</dt>
+          <dd>
+            <a href="//readthedocs.org/projects/picamera/?fromdocs=picamera">Project Home</a>
+          </dd>
+          <dd>
+            <a href="//readthedocs.org/builds/picamera/?fromdocs=picamera">Builds</a>
+          </dd>
+      </dl>
+      <hr/>
+      Free document hosting provided by <a href="http://www.readthedocs.org">Read the Docs</a>.
+
+    </div>
+  </div>
+
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'1.8',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-2.0.3.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/jquery/jquery-migrate-1.2.1.min.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/underscore.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/doctools.js"></script>
+      <script type="text/javascript" src="https://media.readthedocs.org/javascript/readthedocs-doc-embed.js"></script>
+
+  
+
+  
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
