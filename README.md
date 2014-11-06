@@ -7,7 +7,7 @@ Brainstorm
 
 In addition to basic spraying functionality, we will provide key features for users. Retention of the cat detection images will result in cat criminal mugshots. We will upload these onto the blog CATastropheAvoided.tumblr.com for the benefit of society (broader impacts). We will also provide an alert system to send emails to the owner when the sprayer needs to be refilled. Finally, a comprehensive log file of spraying events will be accessible and emailed to the owner weekly. 
 
-![CATtitude Flow Chart](https://github.com/gac7/421_521_final_project_CATtitude/Images/CATtitude_flow.jpg)
+![CATtitude Flow Chart](https://github.com/gac7/421_521_final_project_CATtitude/blob/master/Images/CATtitude_flow.JPG)
 
 Abstract
 ----
