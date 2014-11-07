@@ -1,4 +1,4 @@
-CATTITUDE: A selective cat spraying device for behavior training
+CATTITUDE: A selective cat water spraying device for behavior training
 ========
 
 Brainstorm
