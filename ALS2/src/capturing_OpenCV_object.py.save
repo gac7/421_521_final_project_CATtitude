@@ -1,0 +1,24 @@
+import io
+import time
+import picamera
+import cv2
+import numpy as np
+
+#creating in memory stream
+#stream = io.BytesIO()
+#with picamera.PiCamera() as camera:
+#	camera.start_preview()
+#	camera.capture_continous(stream, format= 'jpeg')
+#	stream.truncate()
+#	stream.seek(0)
+
+#	camera.start_preview()#	time.sleep(2)
+	camera.capture_continuous(stream, format='jpeg')
+
+#Construct a numpy array from the stream
+#data = np.fromstring(stream.getvalue(), dtype=np.uint8)
+
+# "decode" the image from teh array, preserving color
+#cap = cv2.imdecode(data,1)
+
+
