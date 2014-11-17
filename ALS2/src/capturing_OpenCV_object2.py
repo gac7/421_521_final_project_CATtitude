@@ -1,3 +1,6 @@
+#
+#Quasi-live facial recognition works as of 11/16/14
+#
 
 import io
 import time
