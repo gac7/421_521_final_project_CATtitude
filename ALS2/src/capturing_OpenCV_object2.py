@@ -1,3 +1,4 @@
+
 import io
 import time
 import picamera
@@ -36,11 +37,15 @@ nested  = cv2.CascadeClassifier("../data/haarcascades/haarcascade_eye.xml")
 
 connected = False
 ser = serial.Serial("/dev/ttyACM0",9600)
+time.sleep(5)
+ser.write ('M106\n')
+ser.write ('G4 S1\n')
+ser.write('M107\n')
 
 while True:
-	camera.resolution = (640,480)
+	camera.resolution = (120,120)
 	camera.capture('image.png', format='png')
-#time.sleep(10)
+#time.sleep(2)
 
 #Construct a numpy array from the stream
 #	data = np.fromstring(stream.getvalue(), dtype=np.uint8)
@@ -48,7 +53,7 @@ while True:
 # "decode" the image from teh array, preserving color
     	img = cv2.imread('image.png')
 	gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-	cv2.imwrite('test2.png', img)
+	#cv2.imwrite('test2.png', img)
     	#width= cap.get(3)
     	#height = cap.get(4)
     	#print width
@@ -63,8 +68,8 @@ while True:
     	#captured_frame_number = 0
     
    	
-        gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-        gray = cv2.equalizeHist(gray)
+        #gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+        #gray = cv2.equalizeHist(gray)
 
         	
         rects = detect(gray, cascade)
@@ -83,16 +88,16 @@ while True:
 
 		#ser.write("1")
 		ser.write ('M106\n')
-		ser.write ('G4 S1\n')
+		ser.write ('G4 P500\n')
 		ser.write('M107\n')
 
-        	#while ser.read() == 1:
-		#	ser.read()
+        	while ser.read() == 1:
+			ser.read()
 	    
         	#dt = clock() - t
         
         	#draw_str(vis, (20, 20), 'time: %.1f ms' % (dt*1000))
-        	#cv2.imshow('facedetect', vis)
+        	#cv2.imshow('facedetect', vis_roi)
         	#captured_frame_number=captured_frame_number+1
 #	ser = serial.Serial('/dev/tty/usbserial', 9600)
 #	ser.write ('5')
