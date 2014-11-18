@@ -1,0 +1,7 @@
+squirt instance attime.struct_time(tm_year=2014, tm_mon=11, tm_mday=17, tm_hour=23, tm_min=46, tm_sec=43, tm_wday=0, tm_yday=321, tm_isdst=0)
+squirt instance attime.struct_time(tm_year=2014, tm_mon=11, tm_mday=17, tm_hour=23, tm_min=46, tm_sec=44, tm_wday=0, tm_yday=321, tm_isdst=0)
+squirt instance attime.struct_time(tm_year=2014, tm_mon=11, tm_mday=17, tm_hour=23, tm_min=46, tm_sec=45, tm_wday=0, tm_yday=321, tm_isdst=0)
+squirt instance attime.struct_time(tm_year=2014, tm_mon=11, tm_mday=17, tm_hour=23, tm_min=46, tm_sec=47, tm_wday=0, tm_yday=321, tm_isdst=0)
+squirt instance attime.struct_time(tm_year=2014, tm_mon=11, tm_mday=17, tm_hour=23, tm_min=46, tm_sec=48, tm_wday=0, tm_yday=321, tm_isdst=0)
+squirt instance at time.struct_time(tm_year=2014, tm_mon=11, tm_mday=17, tm_hour=23, tm_min=49, tm_sec=21, tm_wday=0, tm_yday=321, tm_isdst=0)
+squirt instance at time.struct_time(tm_year=2014, tm_mon=11, tm_mday=17, tm_hour=23, tm_min=49, tm_sec=23, tm_wday=0, tm_yday=321, tm_isdst=0)
