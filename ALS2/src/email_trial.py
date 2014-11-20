@@ -1,17 +1,20 @@
+#! usr/bin/python
+
 import smtplib
 import string, subprocess, time
+import os
 
 
 from email.mime.multipart import MIMEMultipart
 from subprocess import call
 
-smtpUser = 'gacaldero@gmail.com'
-smtpPass = '11Caniacs'
+smtpUser = 'cattitude.catlog@gmail.com'
+smtpPass = 'chipotle'
 
 toAdd = 'gcaldero@tulane.edu'
 fromAdd = smtpUser
 
-subject = 'so cant figure out as an attachment but can put things in body...ugly but works!!'
+subject = 'CATsequences report'
 header = 'To: ' + toAdd + '\n' + 'From: ' + fromAdd + '\n' + 'Subject: ' + subject
 
 cat_log = open('squirt.txt', 'r')
@@ -33,4 +36,8 @@ s.ehlo()
 s.login(smtpUser, smtpPass)
 s.sendmail(fromAdd, toAdd, header + '\n\n' + body)
 
+os.remove('/home/pi/421_521_final_project_CATtitude/ALS2/src/squirt.txt')
+open('/home/pi/421_521_final_project_CATtitude/ALS2/src/squirt.txt', 'a')
+
 s.quit()
+

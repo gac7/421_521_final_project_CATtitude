@@ -39,7 +39,7 @@ cascade = cv2.CascadeClassifier("../data/haarcascades/haarcascade_frontalface_al
 nested  = cv2.CascadeClassifier("../data/haarcascades/haarcascade_eye.xml")
 
 connected = False
-ser = serial.Serial("/dev/ttyACM0",9600)
+ser = serial.Serial("/dev/ttyACM1",9600)
 time.sleep(5)
 ser.write ('M106\n')
 ser.write ('G4 S1\n')

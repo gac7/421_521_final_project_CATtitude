@@ -1,6 +1,6 @@
 #
-#Quasi-live facial recognition works as of 11/16/14
-#
+#cat detection + log file of squirt instances + uploading to tumblr
+#still missing email component to send weekly emails to user
 
 import io
 import time
@@ -18,12 +18,12 @@ import sys
 import cv2 as cv
 import shutil
 import smtplib
-#from email.MIMEMutlipart import MIMEMultipart
-#from email.MIMEText import MIMEText
-#from email.MIMEImage import MIMEImage
-#from email.MIMEBase import MIMEBase
-#from email import Encoders
-
+import email
+from email.MIMEMutlipart import MIMEMultipart
+from email.MIMEText import MIMEText
+from email.MIMEImage import MIMEImage
+from email.MIMEBase import MIMEBase
+from email import Encoders
 
 
 def parsearguments():
@@ -106,6 +106,10 @@ while True:
         		while ser.read() == 1:
 				ser.read()
 
+			guilt_log = open("squirt.txt", "a")
+			current_time = str(time.localtime())
+			guilt_log.write("squirt instance at " + current_time +"\n")
+
 			shutil.copy2('../../imgdrop/img' + str(k) + '.png','../../guiltCATalog')
         
 	os.remove('../../imgdrop/img' + str(k) + '.png')	
@@ -113,12 +117,33 @@ while True:
 
 	
 
-	#tumblr_hostname = "CATsequencesCATalog"
+	tumblr_hostname = "CATsequencesCATalog.tumblr.com"
 	
-#	addr_from = 'cattitude.catlog@gmail.com'
+	addr_to = 'p3qcddbbzup89@tumblr.com'			
+
+	addr_from = 'cattitude.catlog@gmail.com'
+
+	user = 'cattitude.catlog'
 	
-#	addr_Pass = 'chipotle'
+	password = 'chipotle'
 
-#	tumblr_auth_path = "../../guiltCATalog"
+	msg = MIMEMultipart()
+			
+	msg['Subject'] = 'Tumblr upload'
+	msg['From'] = addr_from
+	msg['To'] = addr_to
+	file_to_upload = '/home/pi/421_521_final_project_CATtitude/guiltCATalog/img1.png'
+	#print file_to_upload
+	fp = open(file_to_upload, 'rb')
+	part = MIMEBase('image', 'gif')
+	part.set_payload( fp.read() )
+	Encoders.encode_base64(part)
+	part.add_header('Content-Disposition', 'attachment; filename="%s"' % os.path.basename(file_to_upload))
+	fp.close()
+	msg.attach(part)
+	server = smtplib.SMTP('smtp.gmail.com:587')
+	server.starttls()
+	server.login(user, password)
+	server.sendmail(msg['From'], msg['To'], msg.as_string())
+	server.quit()
 
-#	tumblr_upload = "tumblr post " + '../../guiltCATalog' + str(k) + '.png'

@@ -18,11 +18,12 @@ import sys
 import cv2 as cv
 import shutil
 import smtplib
-#from email.MIMEMutlipart import MIMEMultipart
-#from email.MIMEText import MIMEText
-#from email.MIMEImage import MIMEImage
-#from email.MIMEBase import MIMEBase
-#from email import Encoders
+import email
+from email.MIMEMutlipart import MIMEMultipart
+from email.MIMEText import MIMEText
+from email.MIMEImage import MIMEImage
+from email.MIMEBase import MIMEBase
+from email import Encoders
 
 
 
@@ -108,17 +109,21 @@ while True:
 
 			shutil.copy2('../../imgdrop/img' + str(k) + '.png','../../guiltCATalog')
         
+	
+	
+
+			tumblr_hostname = "CATsequencesCATalog"
+	
+			addr_from = 'cattitude.catlog@gmail.com'
+	
+			addr_Pass = 'chipotle'
+
+			tumblr_auth_path = "../../guiltCATalog"
+
+			tumblr_upload = "tumblr post " + '../../guiltCATalog' + str(k) + '.png'
+
+
+
 	os.remove('../../imgdrop/img' + str(k) + '.png')	
 	k = k+1
 
-	
-
-	#tumblr_hostname = "CATsequencesCATalog"
-	
-#	addr_from = 'cattitude.catlog@gmail.com'
-	
-#	addr_Pass = 'chipotle'
-
-#	tumblr_auth_path = "../../guiltCATalog"
-
-#	tumblr_upload = "tumblr post " + '../../guiltCATalog' + str(k) + '.png'
