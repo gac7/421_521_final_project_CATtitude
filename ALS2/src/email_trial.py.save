@@ -1,0 +1,9 @@
+smtpUser = 'gacaldero@gmail.com'
+smtpPass = '11Caniacs'
+
+toAdd = gcaldero@tulane.edu
+fromAdd = smtpUser
+
+subject = 'python test'
+header = 'To: ' = toAdd + '\n' +'From: ' + fromAdd + '\n' + 'Subject: ' + subject
+body =
