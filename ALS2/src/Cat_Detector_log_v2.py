@@ -1,5 +1,5 @@
 #
-#cat detection + log file of squirt instances + uploading to tumblr
+#cat detection + log file of squirt instances 
 #still missing email component to send weekly emails to user
 
 import io
