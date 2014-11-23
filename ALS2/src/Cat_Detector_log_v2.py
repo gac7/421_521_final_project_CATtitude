@@ -19,7 +19,7 @@ import cv2 as cv
 import shutil
 import smtplib
 import email
-from email.MIMEMutlipart import MIMEMultipart
+from email.MIMEMultipart import MIMEMultipart
 from email.MIMEText import MIMEText
 from email.MIMEImage import MIMEImage
 from email.MIMEBase import MIMEBase
@@ -70,7 +70,7 @@ camera.start_preview()
 
 
 connected = False
-ser = serial.Serial("/dev/ttyACM1",9600)
+ser = serial.Serial("/dev/ttyACM0",9600)
 time.sleep(5)
 ser.write ('M106\n')
 ser.write ('G4 S1\n')
