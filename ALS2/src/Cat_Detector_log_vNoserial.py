@@ -85,11 +85,11 @@ camera.start_preview()
 
 
 connected = False
-ser = serial.Serial("/dev/ttyACM0",9600)
+#ser = serial.Serial("/dev/ttyACM0",9600)
 time.sleep(5)
-ser.write ('M106\n')
-ser.write ('G4 S1\n')
-ser.write('M107\n')
+#ser.write ('M106\n')
+#ser.write ('G4 S1\n')
+#ser.write('M107\n')
 k = 1;
 
 while True:
@@ -114,12 +114,12 @@ while True:
 		if count > 0:
 			#print('cat detected!')
 
-			ser.write ('M106\n')
-			ser.write ('G4 P500\n')
-			ser.write('M107\n')
+			#ser.write ('M106\n')
+			#ser.write ('G4 P500\n')
+			#ser.write('M107\n')
 	
-        		while ser.read() == 1:
-				ser.read()
+        		#while ser.read() == 1:
+			#	ser.read()
 
 			guilt_log = open("squirt.txt", "a")
 			current_time = str(time.localtime())
