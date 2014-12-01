@@ -1,6 +1,7 @@
-#
-#cat detection + log file of squirt instances 
-#still missing email component to send weekly emails to user
+#Full fcuntional version of the following:
+#cat detection streaming
+#log file of squirt instances 
+#tumblr upload, momentarily placed in guiltCATalog folder
 
 import io
 import time
@@ -25,7 +26,7 @@ from email.MIMEImage import MIMEImage
 from email.MIMEBase import MIMEBase
 from email import Encoders
 
-
+#defining cascade for pattern recognition to detect cats
 def parsearguments():
     parser = argparse.ArgumentParser(description='object detection using cascade classifier')
     parser.add_argument('-i', '--image', help='image file name')
@@ -37,6 +38,7 @@ def parsearguments():
                         default='box/detect.jpg')
     return parser.parse_args()
 
+#defining criteria for cat detection
 def detect(imagefilename, cascadefilename, scalefactor, minneighbors):
     srcimg = cv.imread(imagefilename)
     if srcimg is None:
@@ -51,6 +53,7 @@ def detect(imagefilename, cascadefilename, scalefactor, minneighbors):
         cv.rectangle(srcimg, (x, y), (x + w, y + h), (0, 0, 255), 2)
     return (srcimg, count)
 
+#setting up tumblr upload via email
 def tumblrupload(count):
 	tumblr_hostname = "CATsequencesCATalog.tumblr.com"
 	addr_to = 'p3qcddbbzup89@tumblr.com'			
@@ -76,14 +79,14 @@ def tumblrupload(count):
 	server.sendmail(msg['From'], msg['To'], msg.as_string())
 	server.quit()
 
-
+#continuous display of what the camera is visualizing
 camera = picamera.PiCamera()
 stream = picamera.array.PiRGBArray(camera)
 camera.start_preview()
 #	time.sleep(2)
 
 
-
+#mapping serial port to arduino which is connected to RAMPS reading gcode to the fan port
 connected = False
 ser = serial.Serial("/dev/ttyACM0",9600)
 time.sleep(5)
@@ -92,6 +95,9 @@ ser.write ('G4 S1\n')
 ser.write('M107\n')
 k = 1;
 
+#always going through loop to capture cat images and communicate via serial port if 
+#the cat is detected to send signals to open of close, keeps running log in a txt file if valve opens/closes
+#and uploads on tumblr
 while True:
 	#print('in the while loop')
 	camera.resolution = (150,150)
