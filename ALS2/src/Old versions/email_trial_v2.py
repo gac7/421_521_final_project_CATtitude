@@ -19,8 +19,8 @@ addr_from = 'cattitude.catlog@gmail.com'
 
 user = 'cattitude.catlog'
 	
-password = 'chipotle'
-
+with open ("password.txt", "r") as myfile:
+	password=myfile.readlines()
 
 file_to_upload = '/home/pi/421_521_final_project_CATtitude/ALS2/src/squirt.txt'
 fp = open(file_to_upload, 'rb')

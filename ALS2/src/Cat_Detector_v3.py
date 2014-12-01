@@ -56,7 +56,10 @@ def tumblrupload(count):
 	addr_to = 'p3qcddbbzup89@tumblr.com'			
 	addr_from = 'cattitude.catlog@gmail.com'
 	user = 'cattitude.catlog'
-	password = 'chipotle'
+	
+	with open ("password.txt", "r") as myfile:
+		password=myfile.readlines()
+	
 	msg = MIMEMultipart()
 	msg['Subject'] = 'CATsequences delivered'
 	msg['From'] = addr_from

@@ -9,7 +9,7 @@ from email.mime.multipart import MIMEMultipart
 from subprocess import call
 
 smtpUser = 'cattitude.catlog@gmail.com'
-smtpPass = 'chipotle'
+smtpPass = 
 
 toAdd = 'gcaldero@tulane.edu'
 fromAdd = smtpUser
