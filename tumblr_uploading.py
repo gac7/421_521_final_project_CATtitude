@@ -29,7 +29,7 @@ addr_from = 'cattitude.catlog@gmail.com'
 
 user = 'cattitude.catlog'
 	
-password = 'chipotle'
+password = 
 
 msg = MIMEMultipart()
 			
