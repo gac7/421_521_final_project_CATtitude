@@ -1,6 +1,11 @@
 CATTITUDE: A selective cat water spraying device for behavior training
 ========
 
+Update 12/1/14:
+-----
+As of today, we have a functioning prototype with the basic functionality as well as the additional features described below! Note that the executable file is actually held in the directory /ALS2/src (Cat_Detector_v3.py). There is a shortcut in the parent directory, but the original file has all of its references based on the src directory. 
+
+
 Brainstorm
 ----
             We propose developing a device which will detect the presence of a cat and subsequently trigger the spraying of water in the general direction of the cat. We will use a Raspbeery Pi camera with firmware that we will develop to recognize when a cat appears in the camera’s viewfield. Detection of a cat will initiate a program that communicates with Arduino to activate an actuator which squeezes the handle of a squirt gun, thereby deploying water onto the cat.
