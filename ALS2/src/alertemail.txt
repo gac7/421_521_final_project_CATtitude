@@ -1,0 +1,9 @@
+Dear CATtitude user,
+
+This is an automatic message to let you know that your CATtitude device squirted 5 times in succession. 
+In case of a device error, the system is pausing for 5 minutes. 
+
+You can verify whether the 5 successive squirts were correctly triggered by looking at CATsequencesCATalog.tumblr.com. 
+
+CATually yours,
+The CATitude Dream Team
