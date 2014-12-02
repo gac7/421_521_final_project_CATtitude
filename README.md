@@ -1,5 +1,9 @@
 CATTITUDE: A selective cat water spraying device for behavior training
 ========
+Update 12/2/14:
+------
+To run CATtitude, execute the file Cat_Detector_v3 in the folder /ALS2/src. Note that you must execute from here so the file dependencies work. For convenience, a shortcut is in the home directory. 
+
 
 Brainstorm
 ----
