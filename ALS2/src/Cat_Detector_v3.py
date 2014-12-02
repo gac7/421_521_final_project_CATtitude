@@ -6,6 +6,7 @@
 ############################################
 
 #Note that for this file to work, it must be executed from /ALS2/src 
+#! usr/bin/python
 
 import io
 import time
@@ -107,7 +108,7 @@ camera.start_preview()
 #When running Marlin, the Arduino will wait to recieve standard gcode commands
 
 ser = serial.Serial("/dev/ttyACM0",9600) #One possible failure mode is if the Arduino is assigned a different Serial port id (i.e. ttyACM1). If this happens, change port id here
-time.sleep(5) #Arduino needs a second to initialize before receiving any gcode
+time.sleep(5) #Arduino needs a few seconds to initialize before receiving any gcode
 #ser.write ('M106\n') #comment these 3 ser.write lines back in if you want the solenoid valve to actuate on startup (useful for testing)
 #ser.write ('G4 S1\n')
 #ser.write('M107\n')
