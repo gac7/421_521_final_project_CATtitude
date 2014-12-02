@@ -64,8 +64,8 @@ def detect(imagefilename, cascadefilename, scalefactor, minneighbors): #taking i
     return (srcimg, count)
 
 #setting up tumblr upload via email
-#this code was adapted from a Raspicam photobooth project by _______
-# git repo:
+#this code was adapted from a Raspicam photobooth project by Chris Evans (github user drumminhands)
+# git repo: https://github.com/drumminhands/drumminhands_photobooth
 def tumblrupload(filecount): #filecount is an input so the upload is directed to the correct image file
 	tumblr_hostname = "CATsequencesCATalog.tumblr.com"
 	addr_to = 'p3qcddbbzup89@tumblr.com' #secret email provided by tumblr
@@ -102,8 +102,8 @@ camera.start_preview()
 
 #Initializes the serial connection so that the Pi is communicating with the Arduino
 #Arduino has RAMPS shield attached and is running Marlin firmware
-#Credit for Marlin:
-#Git repo for Marlin
+#Credit for Marlin: Erik van der Zalm
+#Git repo for Marlin: https://github.com/ErikZalm/Marlin
 #When running Marlin, the Arduino will wait to recieve standard gcode commands
 
 ser = serial.Serial("/dev/ttyACM0",9600) #One possible failure mode is if the Arduino is assigned a different Serial port id (i.e. ttyACM1). If this happens, change port id here
